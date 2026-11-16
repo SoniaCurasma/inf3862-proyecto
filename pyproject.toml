@@ -1,0 +1,13 @@
+[project]
+name = "inf3862-proyecto"
+version = "0.1.0"
+description = "Proyecto INF3862: presupuesto de la cena (recetas y wearables)"
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.4",
+    "pandas>=2.2",
+    "matplotlib>=3.8",
+    "pyarrow>=17",
+    "jupyterlab>=4.2",
+    "ipykernel>=6.29",
+]

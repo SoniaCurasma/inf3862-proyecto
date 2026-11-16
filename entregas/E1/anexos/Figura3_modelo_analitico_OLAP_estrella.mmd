@@ -1,0 +1,65 @@
+erDiagram
+    DIM_USUARIO ||--o{ FCT_BALANCE_DIARIO : ""
+    DIM_FECHA ||--o{ FCT_BALANCE_DIARIO : ""
+    DIM_USUARIO ||--o{ FCT_COMIDA : ""
+    DIM_FECHA ||--o{ FCT_COMIDA : ""
+    DIM_RECETA ||--o{ FCT_COMIDA : ""
+    DIM_ACTIVIDAD ||--o{ FCT_COMIDA : "actividad previa"
+
+    FCT_BALANCE_DIARIO {
+        int usuario_key FK
+        int fecha_key FK "día local del usuario"
+        int pasos
+        numeric kcal_gastadas
+        numeric kcal_gastadas_hasta_18h
+        int minutos_actividad
+        int n_sesiones
+        numeric distancia_km
+        numeric kcal_consumidas
+        numeric proteina_g
+        int n_comidas
+        numeric balance_kcal "consumidas - gastadas"
+        numeric pct_cobertura "calidad"
+    }
+    FCT_COMIDA {
+        bigint comida_id "degenerada"
+        int usuario_key FK
+        int fecha_key FK
+        int receta_key FK
+        int actividad_key FK
+        smallint hora_local
+        numeric porciones
+        numeric kcal
+        numeric proteina_g
+    }
+    DIM_USUARIO {
+        int usuario_key PK
+        bigint usuario_id
+        text modelo_reloj
+        text zona_horaria
+        date fecha_vinculacion
+    }
+    DIM_FECHA {
+        int fecha_key PK
+        date fecha
+        text dia_semana
+        bool fin_de_semana
+        int mes
+        int anio
+    }
+    DIM_RECETA {
+        int receta_key PK
+        bigint receta_id
+        text nombre
+        text categoria
+        numeric kcal_porcion
+        numeric proteina_g
+        int tiempo_total_min
+        numeric calificacion_promedio
+        int n_resenas
+    }
+    DIM_ACTIVIDAD {
+        int actividad_key PK
+        text tipo "correr, caminar, bicicleta, sin actividad"
+        text intensidad
+    }

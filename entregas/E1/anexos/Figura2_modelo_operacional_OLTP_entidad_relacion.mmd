@@ -1,0 +1,78 @@
+erDiagram
+    USUARIO ||--o{ VINCULACION : "vincula"
+    DISPOSITIVO ||--o{ VINCULACION : "se vincula en"
+    USUARIO ||--o{ COMIDA : "registra"
+    RECETA ||--o{ COMIDA : "se prepara en"
+    USUARIO ||--o{ RESENA : "escribe"
+    RECETA ||--o{ RESENA : "recibe"
+    USUARIO ||--o{ RECETA : "publica"
+    DISPOSITIVO ||--o{ MEDICION : "envía"
+    DISPOSITIVO ||--o{ SESION : "registra"
+    USUARIO ||--o{ PRESUPUESTO_DIA : "tiene"
+
+    USUARIO {
+        bigint usuario_id PK "= AuthorId"
+        text nombre
+        timestamptz fecha_registro
+    }
+    DISPOSITIVO {
+        text device_id PK
+        text modelo
+        text zona_horaria
+    }
+    VINCULACION {
+        bigint vinculacion_id PK
+        text device_id FK
+        bigint usuario_id FK
+        timestamptz inicio
+        timestamptz fin "NULL = vigente"
+    }
+    RECETA {
+        bigint receta_id PK "= RecipeId"
+        bigint autor_id FK
+        text nombre
+        text categoria
+        int porciones
+        numeric kcal_porcion
+        numeric proteina_g
+        jsonb ingredientes "lista"
+        jsonb palabras_clave "lista"
+    }
+    COMIDA {
+        bigint comida_id PK
+        bigint usuario_id FK
+        bigint receta_id FK
+        timestamptz fecha_hora
+        numeric porciones "CHECK > 0"
+    }
+    RESENA {
+        bigint resena_id PK
+        bigint receta_id FK
+        bigint usuario_id FK "UNIQUE(usuario, receta)"
+        smallint calificacion "CHECK 0 a 5"
+        text texto
+        timestamptz fecha_envio
+    }
+    MEDICION {
+        text device_id FK "PK compuesta"
+        timestamptz ts_medicion "PK compuesta"
+        timestamptz ts_recepcion
+        int frecuencia_cardiaca "NULL permitido"
+        int pasos
+        numeric calorias
+    }
+    SESION {
+        bigint sesion_id PK
+        text device_id FK
+        text tipo
+        timestamptz inicio
+        timestamptz fin
+        numeric distancia_km
+        numeric calorias
+    }
+    PRESUPUESTO_DIA {
+        text clave PK "usuario:fecha_local"
+        numeric kcal_gastadas
+        numeric kcal_consumidas
+        timestamptz actualizado_en
+    }
