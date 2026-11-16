@@ -1,6 +1,7 @@
 # Presupuesto de la cena: balance energético diario para recomendar recetas
 
 Proyecto del curso **INF3862 Plataformas Big Data para Data Science** (Magíster en Estadística - UC).
+
 Autores: 
 1. Joel Víctor Peña Carhuapoma
 2. Sonia Curasma Quispe
