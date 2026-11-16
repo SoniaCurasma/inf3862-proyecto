@@ -20,7 +20,7 @@ A las 18:00 (hora local), la app muestra a cada usuario **cuántas kilocalorías
 
 | Entrega | Contenido | Estado |
 |---|---|---|
-| **E1 · Diseño de datos** | [Informe PDF](entregas/E1/informe.pdf) · [diagramas y notebook de perfilamiento](entregas/E1/anexos/) | Entregada el 16-11-2026 |
+| **E1 · Diseño de datos** | [Informe PDF](entregas/E1/informe.pdf) - [diagramas y notebook de perfilamiento](entregas/E1/anexos/) | Entregada el 16-11-2026 |
 | E2 · Ingesta y procesamiento | Pipeline mínimo (notebook) sobre datos reales | Pendiente (30-11-2026) |
 | E3 · Datos para ML y arquitectura final | Dataset de modelamiento, modelo base, arquitectura | Pendiente (14-12-2026) |
 
