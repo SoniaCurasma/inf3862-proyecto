@@ -1,7 +1,9 @@
 # Presupuesto de la cena: balance energético diario para recomendar recetas
 
 Proyecto del curso **INF3862 Plataformas Big Data para Data Science** (Magíster en Inteligencia Artificial, PUC).
-Autores: Joel Víctor Peña Carhuapoma y Sonia Curasma
+Autores: 
+1. Joel Víctor Peña Carhuapoma
+2. Sonia Curasma Quispe
 
 ## Caso de uso
 
